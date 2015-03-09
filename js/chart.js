@@ -7,14 +7,14 @@ var width = 340;
 var height = 340;
 var data = [];
 
-// ***************************
-// *****   bubbleChart   *****
-// ***************************
+// ****************************
+// *****   Bubble Chart   *****
+// ****************************
 
 var svgBubbleChart;
 
 function buildSvgBubbleChart() {
-  svgBubbleChart = d3.select("#bubbleChart")
+  svgBubbleChart = d3.select("#bubble-chart")
     .append("svg")
       .attr("width",width)
       .attr("height",height)
@@ -29,7 +29,7 @@ function drawBubbleChart(data){
   var enterUpdateSelection = enterSelection.append("g").attr("class","bubble");
   var exitSelection = svgBubbleChart.selectAll("g").data(data).exit();
 
-  var div = d3.select("#bubbleChart").append("div")
+  var div = d3.select("#bubble-chart").append("div")
     .attr("class", "tooltip")
         .style("opacity", 0);
 
@@ -138,14 +138,14 @@ function drawBubbleChart(data){
 }
 
 
-// ************************
-// *****   pieChart   *****
-// ************************
+// *************************
+// *****   Pie Chart   *****
+// *************************
 
 var svgPieChart;
 
 function buildSvgPieChart() {
-  svgPieChart = d3.select('#pieChart')
+  svgPieChart = d3.select('#pie-chart')
     .append("svg")
       .attr("width",width)
       .attr("height",height)
@@ -155,7 +155,7 @@ function buildSvgPieChart() {
 };
 
 function drawPieChart(data) {
-  var div = d3.select("#pieChart").append("div")
+  var div = d3.select("#pie-chart").append("div")
     .attr("class", "tooltip")
       .style("opacity", 0);
 
@@ -218,14 +218,14 @@ function drawPieChart(data) {
 };
 
 
-// ************************
-// *****   barChart   *****
-// ************************
+// *************************
+// *****   Bar Chart   *****
+// *************************
 
 var svgBarChart;
 
 function buildSvgBarChart() {
-  svgBarChart = d3.select('#barChart')
+  svgBarChart = d3.select('#bar-chart')
     .append("svg")
       .attr("width",width)
       .attr("height",height)
@@ -241,7 +241,7 @@ function drawBarChart(data) {
   var enterUpdateSelection = enterSelection.append("rect").attr('class','bar');
   var exitSelection = svgBarChart.selectAll('rect').data(data).exit();
 
-  var div = d3.select("#barChart").append("div")
+  var div = d3.select("#bar-chart").append("div")
       .attr("class", "tooltip")
       .style("opacity", 0);
 

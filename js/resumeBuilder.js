@@ -1,17 +1,10 @@
-// $("#main").append("Andrea Yannone");
-
-// var awesomeThoughts = "I am Andrea and I am awesome.";
-// console.log(awesomeThoughts);
-
-// var funThoughts = awesomeThoughts.replace("awesome","fun");
-// $("#main").append(funThoughts);
-
 var summary = "Junior Web Developer (Full Stack, Ruby on Rails specialist with good Front-end skills). " +
               "Former IT Professional with years of experience in Application Development & System " +
               "Administration with Microsoft SharePoint and Lotus Notes/Domino. Social Entrepreneur and " +
               "Innovator, teaching activities.";
 
-////////////   Biography Data   //////////////
+
+// ***********   Biography Data    ***********
 
 var bio = {
   "name" : "Andrea Yannone",
@@ -34,7 +27,7 @@ var bio = {
 
     for (contact in bio.contacts) {
       var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%",contact).replace("%data%",bio.contacts[contact]);
-      $("#topContacts").append(formattedContactGeneric);
+      $("#top-contacts").append(formattedContactGeneric);
     };
 
     var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
@@ -43,6 +36,7 @@ var bio = {
     $("#header").append(formattedWelcomeMsg);
 
     if (bio.skills.length > 0) {
+      $("#header").append(HTMLskillsHeader);
       $('#header').append(HTMLskillsStart);
       for (skill in bio.skills) {
         $("#skills").append(HTMLskills.replace("%data%",bio.skills[skill]));
@@ -50,9 +44,10 @@ var bio = {
     };
   }
 };
+
 bio.display();
 
-////////////   Education Data (Schools and Online Courses)  //////////////
+// ***********   Education Data (Schools and Online Courses)   ***********
 
 var education = {
   "schools" : [
@@ -82,6 +77,7 @@ var education = {
     }
   ],
   display : function() {
+    $("#education").append(HTMLeducationHeader);
     for (school in education.schools) {
       $("#education").append(HTMLschoolStart);
       var formattedSchoolName = HTMLschoolName.replace("%data%",education.schools[school].name);
@@ -114,7 +110,7 @@ var education = {
 
 education.display();
 
-////////////   Work Data   //////////////
+// ***********   Work Data    ***********
 
 var work = {
   "jobs" : [
@@ -123,11 +119,11 @@ var work = {
       "title" : "Lead Web Developer",
       "location" : "New York City",
       "dates" : "since 09/2014",
-      // "description" : "Developing an online aggregator for children's after school classes."
-      "description" : "Best Class is an online aggregator for children's after school classes. " +
-                      "It helps families identify high-quality, neighborhood classes and after-school " +
-                      "activities that will support their child's development, and nurture their individual " +
-                      "talent. Best Class provides a search engine for locating neighborhood classes, " +
+      // "description" : "Leading the development (Front-end and Back-end) of an online aggregator for children's after school classes."
+      "description" : "In my position as the lead web developer I am responsible for the technical " +
+                      "implementation of bestclass.nyc, an online aggregator for children’s after-school " +
+                      "activities such as art, music, sports, language, tutoring and religious classes. " +
+                      "Best Class provides a search engine for locating high quality classes in the neighborhood, " +
                       "offering an easy route, navigable by older children as well as parents. It delivers " +
                       "all the necessary information, eliminating the need for lengthy internet searches."
     },
@@ -135,8 +131,8 @@ var work = {
       "employer" : "Self-employed",
       "title" : "IT-Freelancer",
       "location" : "Norderstedt, Germany",
-      "dates" : "07/2010-12/2013",
-      // "description" : "SharePoint Developer, Lotus Notes Specialist, Consultant"
+      "dates" : "07/2010 - 12/2013",
+      // "description" : "Consultant for Lufthansa Systems AS GmbH as well as hardware and software installations and IT support for other clients."
       "description" : "My freelance work for Lufthansa Systems AS GmbH included maintenance of their " +
                       "corporate HR database (Lotus Notes/Domino), implementing functionality with " +
                       "Microsoft SharePoint to provide collaboration within and amongst departments, " +
@@ -149,7 +145,7 @@ var work = {
       "title" : "Co-founder",
       "location" : "Hamburg, Germany",
       "dates" : "09/2009 - 12/2013",
-      // "description" : "Developed, organized and implemented computer literacy projects for children, teenager and senior citizen. Established and managed a partner-network of social institutions, nursing homes and public schools."
+      // "description" : "Implemented innovative computer literacy projects for children, adolescents and seniors. Established and managed a partner-network of social and public institutions."
       "description" : "With my business partner I founded this company to help share computer knowledge " +
                       "and make technology accessible to others (especially older and disabled persons). " +
                       "I set up a partner-network of social institutions, nursing homes and public schools " +
@@ -161,8 +157,8 @@ var work = {
       "employer" : "Lufthansa Systems AS GmbH",
       "title" : "Technical Administration and SharePoint Developer",
       "location" : "Norderstedt, Germany",
-      "dates" : "04/2007-06/2010",
-      // "description" : "Established a SharePoint infrastructure, developed a hardware and software ordering system (InfoPath, .NET/C#), re-designed and refactored the HR database (Lotus Notes / Domino)."
+      "dates" : "04/2007 - 06/2010",
+      // "description" : "Established a SharePoint infrastructure, developed a hardware and software ordering system (InfoPath, .NET/C#), refactored the HR database (Lotus Notes/Domino)."
       "description" : "For the Technical Administration Department I established a Microsoft SharePoint " +
                       "infrastructure to improve collaboration and sharing of information, I developed a " +
                       "hardware and software ordering system and provided technical in-house user support. " +
@@ -174,7 +170,7 @@ var work = {
       "employer" : "Condor Lebensversicherungs-Aktiengesellschaft",
       "title" : "Application Administrator",
       "location" : "Hamburg, Germany",
-      "dates" : "08/2002-03/2007",
+      "dates" : "08/2002 - 03/2007",
       // "description" : "Responsible for application development and system administration with Lotus Notes/Domino as well as in-house user support."
       "description" : "As an application administrator my tasks included application development and " +
                       "system administration with Lotus Notes/Domino as well as in-house user support " +
@@ -187,19 +183,19 @@ var work = {
       "employer" : "Nikotel Deutschland AG",
       "title" : "System Integration Administrator",
       "location" : "Hamburg, Germany",
-      "dates" : "01/2001-11/2001",
-      // "description" : "Responsibilities included the implementation of the company's Lotus Notes/Domino infrastructure, installation and administration of the Windows 2000 domain network and the migration of the corporate mail system from Lotus Notes/Domino to Outlook/Exchange 2000."
-      "description" : "Responsibilites included design, installation and maintainance of the whole " +
+      "dates" : "01/2001 - 11/2001",
+      // "description" : "Implemented and maintained the company's Lotus Notes/Domino infrastructure as well as the Windows 2000 domain network with all services."
+      "description" : "My responsibilites included design, installation and maintainance of the whole " +
                       "company's Lotus Notes/Domino infrastructure as well as the Windows 2000 domain " +
-                      "network with all services (Domain controllers, Mail servers and Clients). Migration " +
-                      "of the corporate mail system from Lotus Notes/Domino to Outlook/Exchange 2000"
+                      "network with all services (Domain controllers, Mail servers and Windows Clients). " +
+                      "Migration of the corporate mail system from Lotus Notes/Domino to Outlook/Exchange 2000."
     },
     {
       "employer" : "PPP Internetdienstleistungen GmbH",
       "title" : "Development and Support Engineer",
       "location" : "Hamburg, Germany",
-      "dates" : "04/1998-12/2002",
-      // "description" : "I developed, implemented and maintained an in-house information system based on my workflow research that helped improve the processing of all customer services."
+      "dates" : "04/1998 - 12/2002",
+      // "description" : "Developed, implemented and maintained an in-house information system and later provided high quality first and second level customer support."
       "description" : "I developed, implemented and maintained an in-house information system with " +
                       "Lotus Notes/Domino based on my workflow research that helped improve the processing " +
                       "of all customer services, e.g. help requests, orders, installation procedures. Later " +
@@ -208,8 +204,9 @@ var work = {
     }
   ],
   display : function() {
+    $("#work-experience").append(HTMLworkHeader);
     for (job in work.jobs) {
-      $("#workExperience").append(HTMLworkStart);
+      $("#work-experience").append(HTMLworkStart);
       var formattedWorkEmployer = HTMLworkEmployer.replace("%data%",work.jobs[job].employer);
       var formattedWorkTitle = HTMLworkTitle.replace("%data%",work.jobs[job].title);
       var formattedWorkDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
@@ -226,7 +223,7 @@ var work = {
 
 work.display();
 
-////////////   Projects Data   //////////////
+// ***********   Projects Data    ***********
 
 var projects = {
   "projects" : [
@@ -256,6 +253,7 @@ var projects = {
     }
   ],
   display : function() {
+    $("#projects").append(HTMLprojectHeader);
     for (project in projects.projects) {
       $("#projects").append(HTMLprojectStart);
       var formattedProjectTitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
@@ -272,46 +270,20 @@ var projects = {
 
 projects.display();
 
-////////////   various functions  ////////////
 
-// $(document).click(function(loc){
-//   var x = loc.pageX;
-//   var y = loc.pageY;
-//   logClicks(x,y);
-// });
+// ***********   Let's connect Data   ***********
+
+$("#lets-connect").append(HTMLletsConnectHeader);
+$("#lets-connect").append(HTMLletsConnectFooterContactsList);
 
 
-// function locationizer(work_obj) {
-//   var locations = [];
-//   for (job in work.jobs) {
-//     locations.push(work.jobs[job].location);
-//   };
-//   return locations; // array of locations
-// };
-// var locations = locationizer(work);
+// ***********   Google Map    ***********
+
+$('#map-div').append(HTMLgoogleMapHeader);
+$('#map-div').append(googleMap);
 
 
-// function inName(name) {
-//   var nameArray = name.trim().split(" ");
-//   var firstName = nameArray[0].toLowerCase();
-//   firstName = firstName[0].toUpperCase() + firstName.slice(1);
-//   var lastName = nameArray[1].toUpperCase();
-//   return firstName + " " + lastName;
-// };
-$("#main").append(internationalizeButton);
-
-
-////////////   Google Map   //////////////
-
-$('#mapDiv').append(googleMap);
-
-
-////////////   D3 Visualization   //////////////
-
-d3.select("#favorites").style("background-color", "red");
-
-d3.select("#education").transition().delay(1000).duration(3000)
-    .style("background-color", "orange");
+// ***********   D3 Visualization    ***********
 
 buildSvgBubbleChart();
 drawBubbleChart(skillLevel);
@@ -321,3 +293,9 @@ drawPieChart(skillLevel);
 
 buildSvgBarChart();
 drawBarChart(skillLevel);
+
+
+// ***********   More animation    ***********
+
+d3.select("#education").transition().delay(1000).duration(3000)
+    .style("background-color", "orange");
