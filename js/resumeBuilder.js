@@ -3,8 +3,9 @@ var summary = "Junior Web Developer (Full Stack, Ruby on Rails specialist with g
               "Administration with Microsoft SharePoint and Lotus Notes/Domino. Social Entrepreneur and " +
               "Innovator, teaching activities.";
 
-
+// *******************************************
 // ***********   Biography Data    ***********
+// *******************************************
 
 var bio = {
   "name" : "Andrea Yannone",
@@ -25,29 +26,38 @@ var bio = {
     $("#header").prepend(formattedRole);
     $("#header").prepend(formattedName);
 
-    for (contact in bio.contacts) {
-      var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%",contact).replace("%data%",bio.contacts[contact]);
-      $("#top-contacts").append(formattedContactGeneric);
-    };
+    bio.displayContact("#top-contacts");
 
     var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
-    var formattedWelcomeMsg = HTMLWelcomeMsg.replace("%data%",bio.welcomeMsg);
+    var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMsg);
     $("#header").append(formattedBioPic);
     $("#header").append(formattedWelcomeMsg);
 
     if (bio.skills.length > 0) {
       $("#header").append(HTMLskillsHeader);
       $('#header').append(HTMLskillsStart);
-      for (skill in bio.skills) {
-        $("#skills").append(HTMLskills.replace("%data%",bio.skills[skill]));
-      };
+      bio.displaySkills("#skills");
+    };
+  },
+  displayContact : function(htmlElement) {
+    for (contact in bio.contacts) {
+      var formattedContactGeneric = HTMLcontactGeneric.replace("%contact%",contact).replace("%data%",bio.contacts[contact]);
+      $(htmlElement).append(formattedContactGeneric);
+    };
+  },
+  displaySkills : function(htmlElement) {
+    for (skill in bio.skills) {
+      var formattedHTMLSkill = HTMLskills.replace("%data%",bio.skills[skill]);
+      $(htmlElement).append(formattedHTMLSkill);
     };
   }
 };
 
 bio.display();
 
+//************************************************************************
 // ***********   Education Data (Schools and Online Courses)   ***********
+//************************************************************************
 
 var education = {
   "schools" : [
@@ -110,7 +120,9 @@ var education = {
 
 education.display();
 
+// **************************************
 // ***********   Work Data    ***********
+// **************************************
 
 var work = {
   "jobs" : [
@@ -223,7 +235,9 @@ var work = {
 
 work.display();
 
+// ******************************************
 // ***********   Projects Data    ***********
+// ******************************************
 
 var projects = {
   "projects" : [
@@ -270,20 +284,24 @@ var projects = {
 
 projects.display();
 
-
+// **********************************************
 // ***********   Let's connect Data   ***********
+// **********************************************
 
 $("#lets-connect").append(HTMLletsConnectHeader);
 $("#lets-connect").append(HTMLletsConnectFooterContactsList);
+bio.displayContact("#footer-contacts");
 
-
+// ***************************************
 // ***********   Google Map    ***********
+// ***************************************
 
 $('#map-div').append(HTMLgoogleMapHeader);
 $('#map-div').append(googleMap);
 
-
+// *********************************************
 // ***********   D3 Visualization    ***********
+// *********************************************
 
 buildSvgBubbleChart();
 drawBubbleChart(skillLevel);
@@ -294,8 +312,9 @@ drawPieChart(skillLevel);
 buildSvgBarChart();
 drawBarChart(skillLevel);
 
-
+// *******************************************
 // ***********   More animation    ***********
+// *******************************************
 
 d3.select("#education").transition().delay(1000).duration(3000)
     .style("background-color", "orange");

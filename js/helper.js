@@ -2,15 +2,9 @@ var HTMLheaderName = '<h1 id="name">%data%</h1>';
 var HTMLheaderRole = '<span>%data%</span><hr/>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span>%contact%</span><span>%data%</span></li>';
-// var HTMLmobile = '<li class="flex-item"><span class="orange-text">mobile</span><span class="white-text">%data%</span></li>';
-// var HTMLemail = '<li class="flex-item"><span class="orange-text">email</span><span class="white-text">%data%</span></li>';
-// var HTMLtwitter = '<li class="flex-item"><span class="orange-text">twitter</span><span class="white-text">%data%</span></li>';
-// var HTMLgithub = '<li class="flex-item"><span class="orange-text">github</span><span class="white-text">%data%</span></li>';
-// var HTMLblog = '<li class="flex-item"><span class="orange-text">blog</span><span class="white-text">%data%</span></li>';
-// var HTMLlocation = '<li class="flex-item"><span class="orange-text">location</span><span class="white-text">%data%</span></li>';
 
 var HTMLbioPic = '<img src="%data%" class="biopic">';
-var HTMLWelcomeMsg = '<span class="welcome-message">%data%</span>';
+var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 
 var HTMLskillsHeader = '<h3 id="skills-header">Skills at a Glance:</h3>';
 var HTMLskillsStart = '<ul id="skills" class="flex-box"></ul>';
@@ -54,9 +48,10 @@ var HTMLletsConnectHeader = '<h2>Let\'s Connect</h2>';
 var HTMLletsConnectFooterContactsList = '<ul id="footer-contacts" class="flex-box"></ul>';
 
 
-/*
-The next few lines about clicks are for the Collecting Click Locations quiz in Lesson 2.
-*/
+// ***************************************************************************
+// ***********   console.log() information about click locations   ***********
+// ***************************************************************************
+
 clickLocations = [];
 
 function logClicks(x,y) {
@@ -75,27 +70,19 @@ $(document).click(function(loc){
   logClicks(x,y);
 });
 
-/*
-This is the fun part. Here's where we generate the custom Google Map for the website.
-See the documentation below for more details.
-https://developers.google.com/maps/documentation/javascript/reference
-*/
-var map;    // declares a global map variable
+// ********************************************************************************
+// ***********   Google Maps for all locations (bio, education, work)   ***********
+// ********************************************************************************
 
+var map;
 
-/*
-Start here! initializeMap() is called when page is loaded.
-*/
 function initializeMap() {
-
   var locations;
 
   var mapOptions = {
-    disableDefaultUI: true
+    // disableDefaultUI: true
   };
 
-  // This next line makes `map` a new Google Map JavaScript Object and attaches it to
-  // <div id="map">, which is appended as part of an exercise late in the course.
   map = new google.maps.Map(document.querySelector('#map'), mapOptions);
 
 
@@ -153,9 +140,9 @@ function initializeMap() {
       content: name
     });
 
-    // hmmmm, I wonder what this is about...
+    // shows an info window about the location when marker is clicked
     google.maps.event.addListener(marker, 'click', function() {
-      // your code goes here!
+      infoWindow.open(map, marker);
     });
 
     // this is where the pin actually gets added to the map.
@@ -212,10 +199,6 @@ function initializeMap() {
   pinPoster(locations);
 
 }
-
-/*
-Uncomment the code below when you're ready to implement a Google Map!
-*/
 
 // Calls the initializeMap() function when the page loads
 window.addEventListener('load', initializeMap);
