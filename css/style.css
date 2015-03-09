@@ -80,6 +80,7 @@ a {
 }
 
 .welcome-message {
+  display: block;
   font-style: italic;
   font-size: 18px;
   color: #F3F3F3;
@@ -128,6 +129,10 @@ a {
   padding: 10px;
 }
 
+.flex-item {
+  display: inline;
+}
+
 .center-content {
   padding-top: 2.5%;
   padding-left: 5%;
@@ -169,6 +174,17 @@ span {
 #letsConnect {
   text-align: center;
 }
+
+
+
+/* START: my modifications to the interactive resume */
+
+#favorites {
+  height: 550px;
+  border: 1px solid orange;
+}
+
+/* END: my modifications to the interactive resume */
 
 @media only screen and (max-width: 1024px) {
   #letsConnect {
