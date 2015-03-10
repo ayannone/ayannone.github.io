@@ -31,7 +31,7 @@ function drawBubbleChart(data){
 
   var div = d3.select("#bubble-chart").append("div")
     .attr("class", "tooltip")
-        .style("opacity", 0);
+    .style("opacity", 0);
 
   var force = d3.layout.force()
     .charge(0)
@@ -43,8 +43,7 @@ function drawBubbleChart(data){
 
   enterUpdateSelection
     .append("circle")
-      .attr("r",function(d,i){return radius = 40;});
-      // .attr("r",function(d,i){return radius = 35 + d.level;});
+    .attr("r",function(d,i){return radius = 40;});
 
   enterUpdateSelection
     .append("text");
@@ -53,37 +52,55 @@ function drawBubbleChart(data){
     .style("stroke","black")
     .style("fill", function(d, i) {
       switch (true) {
+        case (d.level > 9):
+          color = "#000080"; // navy blue
+          break;
+        case (d.level > 8):
+          color = "#0000CD"; // medium blue
+          break;
+        case (d.level > 7):
+          color = "#0000FF"; // blue
+          break;
         case (d.level > 6):
-          color = "blue";
+          color = "#4169E1"; // royal blue
           break;
-        case (d.level <= 6 && d.level > 4):
-          color = "steelblue"; // #ff7070"; light red
+        case (d.level > 5):
+          color = "#6495ED"; // corn flower blue
           break;
-        case (d.level <= 4 && d.level > 0):
-          color = "lightblue";
+        case (d.level > 4):
+          color = "#00BFFF"; // deep sky blue
+          break;
+        case (d.level > 3):
+          color = "#87CEEB"; // sky blue
+          break;
+        case (d.level > 2):
+          color = "#ADD8E6"; // light blue
+          break;
+        case (d.level > 1):
+          color = "#F0F8FF"; // alice blue
           break;
         default:
-         color = "white"; //#fc6"; // light orange
+          color = "green";
       }
-    return color;
-  })
-
-  .on("mouseover", function(d) {
-    div.transition()
-      .duration(200)
-      .style("opacity", .9);
-    div.html( d.skill + "<br />Level: " + d.level + "<br />" )
-      .style("left", (d3.event.pageX) + "px")
-      .style("top", (d3.event.pageY - 28) + "px");
+      return color;
     })
 
-  .on("mouseout", function(d) {
-    div.transition()
-      .duration(500)
-      .style("opacity", 0);
+    .on("mouseover", function(d) {
+      div.transition()
+        .duration(200)
+        .style("opacity", .9);
+      div.html( d.skill + "<br />Level: " + d.level + "<br />" )
+        .style("left", (d3.event.pageX) + "px")
+        .style("top", (d3.event.pageY - 28) + "px");
+    })
+
+    .on("mouseout", function(d) {
+      div.transition()
+        .duration(500)
+        .style("opacity", 0);
     });
 
-  updateSelection.select("text")//.slice(0,15)
+  updateSelection.select("text")
     .text(function(d){ return d.skill.trim(); })
     .style("text-align","center")
     .style("font-size","8px")
@@ -91,8 +108,8 @@ function drawBubbleChart(data){
 
   force.on("tick", function(e) {
     var q = d3.geom.quadtree(data),
-      i = 0,
-      n = data.length;
+        i = 0,
+        n = data.length;
 
     while (++i < n) q.visit(collide(data[i]));
 
@@ -101,7 +118,6 @@ function drawBubbleChart(data){
       .attr("cy", function(d) { return d.y; });
 
     svgBubbleChart.selectAll("text")
-      // .data(packages)
       .attr("dx", function(d) { return d.x-25; })
       .attr("dy", function(d) { return d.y; });
   });
@@ -109,11 +125,11 @@ function drawBubbleChart(data){
   function collide(node) {
 
     var r = radius + (radius+1),
-    // var r = node.radius + 16,
         nx1 = node.x - r,
         nx2 = node.x + r,
         ny1 = node.y - r,
         ny2 = node.y + r;
+
     return function(quad, x1, y1, x2, y2) {
       if (quad.point && (quad.point !== node)) {
         var x = node.x - quad.point.x,
@@ -160,61 +176,77 @@ function drawPieChart(data) {
       .style("opacity", 0);
 
   var arc = d3.svg.arc()
-      .innerRadius(0)
-      .outerRadius(150);
+    .innerRadius(0)
+    .outerRadius((width / 2)-20);
 
   var pie = d3.layout.pie()
-      .sort(null)
-      .value(function(d) { return d.level; });
+    .sort(null)
+    .value(function(d) { return d.level; });
 
   var chart = svgPieChart.append("g")
-      // .attr("transform", "translate(250,210)");
-      .attr("transform", "translate(170,170)");
+    .attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
   var arcGs = chart.selectAll(".arc")
-      .data(pie(data))
-          .enter().append("g")
-          .style("fill", function(d, i) {
-      switch (true) {
-        case (d.level > 6):
-          color = "blue";
-          break;
-        case (d.level <= 6 && d.level > 4):
-          color = "steelblue"; // #ff7070"; light red
-          break;
-        case (d.level <= 4 && d.level > 0):
-          color = "lightblue";
-          break;
-        default:
-         color = "#fc6"; // light orange
-      }
-    return color;
-  });
+    .data(pie(data))
+      .enter().append("g")
+      .style("fill", function(d, i) {
+        switch (true) {
+          case (d.data.level > 9):
+            color = "#000080"; // navy blue
+            break;
+          case (d.data.level > 8):
+            color = "#0000CD"; // medium blue
+            break;
+          case (d.data.level > 7):
+            color = "#0000FF"; // blue
+            break;
+          case (d.data.level > 6):
+            color = "#4169E1"; // royal blue
+            break;
+          case (d.data.level > 5):
+            color = "#6495ED"; // corn flower blue
+            break;
+          case (d.data.level > 4):
+            color = "#00BFFF"; // deep sky blue
+            break;
+          case (d.data.level > 3):
+            color = "#87CEEB"; // sky blue
+            break;
+          case (d.data.level > 2):
+            color = "#ADD8E6"; // light blue
+            break;
+          case (d.data.level > 1):
+            color = "#F0F8FF"; // alice blue
+            break;
+          default:
+            color = "white";
+        }
+        return color;
+      });
 
   arcGs.append("path")
     .attr("d", arc)
-    .style("stroke", "white")
+    .style("stroke", "black")
     .style("stroke-width", 1);
 
-  // function mouseover(d) {
-  //     div.transition()
-  //         .duration(200)
-  //         .style("opacity", .9);
-  //     div.html( d.skill + "<br />Level: " + d.level + "<br />" )
-  //         .style("left", (d3.event.pageX) + "px")
-  //         .style("top", (d3.event.pageY - 28) + "px");
-  // };
+  function mouseover(d) {
+    div.transition()
+      .duration(200)
+      .style("opacity", .9);
+    div.html( d.data.skill + "<br />Level: " + d.data.level + "<br />" )
+      .style("left", (d3.event.pageX) + "px")
+      .style("top", (d3.event.pageY - 28) + "px");
+  };
 
-  // function mouseout() {
-  //     div.transition()
-  //         .duration(500)
-  //         .style("opacity", 0);
-  // };
+  function mouseout() {
+    div.transition()
+      .duration(500)
+      .style("opacity", 0);
+  };
 
-  // d3.selectAll("g")
-  //     .on("mouseover", mouseover)
-  //     .on("mouseout",  mouseout);
-
+  d3.selectAll("g")
+    .on("mouseover", mouseover)
+    .on("mouseout",  mouseout);
 };
 
 
@@ -242,57 +274,66 @@ function drawBarChart(data) {
   var exitSelection = svgBarChart.selectAll('rect').data(data).exit();
 
   var div = d3.select("#bar-chart").append("div")
-      .attr("class", "tooltip")
-      .style("opacity", 0);
+    .attr("class", "tooltip")
+    .style("opacity", 0);
 
   var barWidth = width/data.length;
 
-  // updateSelection
-  //     .attr("x", function (d, i) { return i * barWidth; })
-  //     .attr("y", function (d, i) { return height - (d.unique_installs/100); })
-  //     .attr("width", barWidth-1)
-  //     .attr("height", function(d) { return d.unique_installs/100; })
-  //     .style("fill", function(d, i) {
-  //         switch (true) {
-  //           case (d.unique_installs > 2000000):
-  //             color = "red";
-  //             break;
-  //           case (d.unique_installs <= 2000000 && d.unique_installs > 100000):
-  //             color = "#ff7070"; // light red
-  //             break;
-  //           case (d.unique_installs <= 100000 && d.unique_installs > 10000):
-  //             color = "blue";
-  //             break;
-  //           case (d.unique_installs <= 10000 && d.unique_installs > 5000):
-  //             color = "steelblue";
-  //             break;
-  //           case (d.unique_installs <= 5000 && d.unique_installs > 1000):
-  //             color = "lightblue";
-  //             break;
-  //           case (d.unique_installs <= 1000 && d.unique_installs > 500):
-  //             color = "orange";
-  //             break;
-  //           default:
-  //            color = "#fc6"; // light orange
-  //         }
-  //       return color;
-  //     })
+  updateSelection
+    .attr("x", function (d, i) { return i * barWidth; })
+    .attr("y", function (d, i) { return height - (d.level*50); })
+    .attr("width", barWidth-1)
+    .attr("height", function(d) { return d.level*50; })
+    .style("fill", function(d, i) {
+      switch (true) {
+        case (d.level > 9):
+          color = "#000080"; // navy blue
+          break;
+        case (d.level > 8):
+          color = "#0000CD"; // medium blue
+          break;
+        case (d.level > 7):
+          color = "#0000FF"; // blue
+          break;
+        case (d.level > 6):
+          color = "#4169E1"; // royal blue
+          break;
+        case (d.level > 5):
+          color = "#6495ED"; // corn flower blue
+          break;
+        case (d.level > 4):
+          color = "#00BFFF"; // deep sky blue
+          break;
+        case (d.level > 3):
+          color = "#87CEEB"; // sky blue
+          break;
+        case (d.level > 2):
+          color = "#ADD8E6"; // light blue
+          break;
+        case (d.level > 1):
+          color = "#F0F8FF"; // alice blue
+          break;
+        default:
+         color = "white";
+      }
+      return color;
+    })
 
-  //     .on("mouseover", function(d) {
-  //         div.transition()
-  //             .duration(200)
-  //             .style("opacity", .9);
-  //         div.html( d.name + "<br />Rank: " + d.installs_rank + "<br />Installs: " + d.unique_installs)
-  //             .style("left", (d3.event.pageX) + "px")
-  //             .style("top", (d3.event.pageY - 28) + "px");
-  //         })
+    .on("mouseover", function(d) {
+      div.transition()
+          .duration(200)
+          .style("opacity", .9);
+      div.html( d.skill + "<br />Level: " + d.level)
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY - 28) + "px");
+    })
 
-  //     .on("mouseout", function(d) {
-  //         div.transition()
-  //             .duration(500)
-  //             .style("opacity", 0);
-  //         });
+    .on("mouseout", function(d) {
+      div.transition()
+        .duration(500)
+        .style("opacity", 0);
+    });
 
-  // exitSelection.remove();
+  exitSelection.remove();
 
 }

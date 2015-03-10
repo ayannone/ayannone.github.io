@@ -180,16 +180,15 @@ span {
   color: #FFFFFF;
 }
 
-/* Bar chart styling */
-.chart div {
-  font: 10px sans-serif;
-  background-color: #4A4A4A;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  height: 12px;
-  color: white;
-  display: inline-block;
+div.tooltip {
+  position: absolute;
+  text-align: center;
+  padding: 15px;
+  font: 12px sans-serif;
+  background: #DDDDDD;
+  border: solid 1px #AAAAAA;
+  border-radius: 15px;
+  pointer-events: none;
 }
 
 @media only screen and (max-width: 1024px) {
