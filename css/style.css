@@ -64,14 +64,32 @@ span {
   padding: 5px;
 }
 
-
-/* TODO: Replace with image later */
 #header {
-  padding-top: 2.5%;
-  padding-left: 5%;
-  padding-right: 5%;
-  padding-bottom: 2.5%;
-  background-color: #484848;
+}
+
+#top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(0,0,0,0.8);
+}
+
+#top-content {
+  padding: 0 5% 2.5%;
+  margin-top: 104px;
+  background: url("../images/headerpic.jpg") no-repeat;
+  background-size: cover;
+}
+
+#name {
+  margin: 15px 0 0 25px;
+  display: inline-block;
+}
+
+#role {
+  margin-left: 25px;
+  font-size: 1.2em;
+  color: #87CEEB;
 }
 
 #skills-header {
@@ -130,6 +148,7 @@ span {
 }
 
 .welcome-message {
+  padding-top: 18px;
   display: block;
   font-style: italic;
   font-size: 18px;
@@ -213,9 +232,18 @@ div.tooltip {
   .welcome-message {
     display: none;
   }
+  #role {
+    display: inline-block;
+  }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (max-width: 559px) {
+  #top-content {
+    margin-top: 138px;
+  }
+}
+
+@media only screen and (min-width: 751px) {
   #skills-header,
   .biopic {
     display: block;

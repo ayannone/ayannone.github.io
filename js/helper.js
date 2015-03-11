@@ -1,5 +1,5 @@
 var HTMLheaderName = '<h1 id="name">%data%</h1>';
-var HTMLheaderRole = '<span>%data%</span><hr/>';
+var HTMLheaderRole = '<span id="role">%data%</span><hr/>';
 
 var HTMLcontactGeneric = '<li class="flex-item"><span>%contact%</span><span>%data%</span></li>';
 

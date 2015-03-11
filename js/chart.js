@@ -171,6 +171,12 @@ function buildSvgPieChart() {
 };
 
 function drawPieChart(data) {
+
+  var updateSelection = svgPieChart.selectAll("g").data(data);
+  var enterSelection = updateSelection.enter();
+  var enterUpdateSelection = enterSelection.append("g").attr('class','arc');
+  var exitSelection = svgPieChart.selectAll("g").data(data).exit();
+
   var div = d3.select("#pie-chart").append("div")
     .attr("class", "tooltip")
       .style("opacity", 0);
@@ -222,31 +228,28 @@ function drawPieChart(data) {
             color = "white";
         }
         return color;
-      });
+      })
+    .on("mouseover", function(d) {
+      div.transition()
+          .duration(200)
+          .style("opacity", .9);
+      div.html( d.data.skill + "<br />Level: " + d.data.level)
+          .style("left", (d3.event.pageX) + "px")
+          .style("top", (d3.event.pageY - 28) + "px");
+    })
+
+    .on("mouseout", function(d) {
+      div.transition()
+        .duration(500)
+        .style("opacity", 0);
+    });
 
   arcGs.append("path")
     .attr("d", arc)
     .style("stroke", "black")
     .style("stroke-width", 1);
 
-  function mouseover(d) {
-    div.transition()
-      .duration(200)
-      .style("opacity", .9);
-    div.html( d.data.skill + "<br />Level: " + d.data.level + "<br />" )
-      .style("left", (d3.event.pageX) + "px")
-      .style("top", (d3.event.pageY - 28) + "px");
-  };
-
-  function mouseout() {
-    div.transition()
-      .duration(500)
-      .style("opacity", 0);
-  };
-
-  d3.selectAll("g")
-    .on("mouseover", mouseover)
-    .on("mouseout",  mouseout);
+  exitSelection.remove();
 };
 
 

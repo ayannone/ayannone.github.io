@@ -1,8 +1,3 @@
-var summary = "Junior Web Developer (Full Stack, Ruby on Rails specialist with good Front-end skills). " +
-              "Former IT Professional with years of experience in Application Development & System " +
-              "Administration with Microsoft SharePoint and Lotus Notes/Domino. Social Entrepreneur and " +
-              "Innovator, teaching activities.";
-
 // *******************************************
 // ***********   Biography Data    ***********
 // *******************************************
@@ -15,27 +10,30 @@ var bio = {
     "email" : "andrea.yannone1@gmail.com",
     "github" : "ayannone",
     "twitter" : "@delia421",
-    "location" : "New York, NY"
+    "location" : "New York, USA"
   },
-  "welcomeMsg" : "Happy Everything!",
+  "welcomeMsg" : "Hi, I am Andrea. <br> A \"Hamburger Deern\" from Germany, now residing in New York. " +
+                 "Full Stack Web Developer with specialist focus on Ruby on Rails and Front-end technologies, " +
+                 "experienced IT Professional with Lotus Notes/Domino and Microsoft SharePoint, Social " +
+                 "Entrepreneur, Fair Trader and Innovator.",
   "skills" : ["HTML5","CSS3","JavaScript","jQuery","Ajax","Ruby","Ruby on Rails","Backbone.js","D3.js","SQL","MySQL","PostgreSQL","Bootstrap","Git","GitHub","Heroku","Amazon S3"],
   "bioPic" : "images/portrait.jpg",
   display : function() {
     var formattedName = HTMLheaderName.replace("%data%",bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
-    $("#header").prepend(formattedRole);
-    $("#header").prepend(formattedName);
+    $("#top-bar").prepend(formattedRole);
+    $("#top-bar").prepend(formattedName);
 
     bio.displayContact("#top-contacts");
 
     var formattedBioPic = HTMLbioPic.replace("%data%",bio.bioPic);
     var formattedWelcomeMsg = HTMLwelcomeMsg.replace("%data%",bio.welcomeMsg);
-    $("#header").append(formattedBioPic);
-    $("#header").append(formattedWelcomeMsg);
+    $("#top-content").append(formattedBioPic);
+    $("#top-content").append(formattedWelcomeMsg);
 
     if (bio.skills.length > 0) {
-      $("#header").append(HTMLskillsHeader);
-      $('#header').append(HTMLskillsStart);
+      $("#top-content").append(HTMLskillsHeader);
+      $("#top-content").append(HTMLskillsStart);
       bio.displaySkills("#skills");
     };
   },
