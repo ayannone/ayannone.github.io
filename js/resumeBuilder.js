@@ -233,25 +233,25 @@ var projects = {
      "title" : "bestclass.nyc",
      "dates" : "2015",
      "description" : "Online aggregator for children's after school activities, that provides a search engine for locating high quality classes in your neighborhood.",
-     "images" : [""]
+     "images" : ["bcl1.jpg","bcl2.jpg","bcl3.jpg"]
     },
     {
      "title" : "Sublime Packages Evaluator",
      "dates" : "2014",
      "description" : "Review and rate packages for the Sublime Text Editor. Share your experience with other users. Display packages by popularity using data visualization.",
-     "images" : [""]
+     "images" : ["spe1.jpg","spe2.jpg","spe3.jpg"]
     },
     {
      "title" : "Business Card Organizer",
      "dates" : "2014",
      "description" : "Take a picture of a business card and email it to the app to keep track of your networking contacts (collaborative project).",
-     "images" : [""]
+     "images" : ["bco1.jpg","bco2.jpg","bco3.jpg"]
     },
     {
      "title" : "Helpr",
      "dates" : "2014",
      "description" : "Finding, requesting and offering help in different locations and categories and meet people in the real world.",
-     "images" : [""]
+     "images" : ["hpr1.jpg","hpr2.jpg","hpr3.jpg"]
     }
   ],
   display : function() {

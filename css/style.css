@@ -188,6 +188,10 @@ span {
   color: #6495ED;
 }
 
+.project-entry {
+  width: 48%;
+}
+
 .date-text {
   font-style: italic;
   font-size: 14px;

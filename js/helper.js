@@ -47,7 +47,6 @@ var googleMap = '<div id="map"></div>';
 var HTMLletsConnectHeader = '<h2>Let\'s Connect</h2>';
 var HTMLletsConnectFooterContactsList = '<ul id="footer-contacts" class="flex-box"></ul>';
 
-
 // ***************************************************************************
 // ***********   console.log() information about click locations   ***********
 // ***************************************************************************
