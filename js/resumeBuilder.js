@@ -153,7 +153,6 @@ var work = {
       "title" : "Co-founder",
       "location" : "Hamburg, Germany",
       "dates" : "09/2009 - 12/2013",
-      // "description" : "Implemented innovative computer literacy projects for children, adolescents and seniors. Established and managed a partner-network of social and public institutions."
       "description" : "With my business partner I founded this company to help share computer knowledge " +
                       "and make technology accessible to others (especially older and disabled persons). " +
                       "I set up a partner-network of social institutions, nursing homes and public schools " +
@@ -166,7 +165,6 @@ var work = {
       "title" : "Technical Administration and SharePoint Developer",
       "location" : "Norderstedt, Germany",
       "dates" : "04/2007 - 06/2010",
-      // "description" : "Established a SharePoint infrastructure, developed a hardware and software ordering system (InfoPath, .NET/C#), refactored the HR database (Lotus Notes/Domino)."
       "description" : "For the Technical Administration Department I established a Microsoft SharePoint " +
                       "infrastructure to improve collaboration and sharing of information, I developed a " +
                       "hardware and software ordering system and provided technical in-house user support. " +
@@ -179,7 +177,6 @@ var work = {
       "title" : "Application Administrator",
       "location" : "Hamburg, Germany",
       "dates" : "08/2002 - 03/2007",
-      // "description" : "Responsible for application development and system administration with Lotus Notes/Domino as well as in-house user support."
       "description" : "As an application administrator my tasks included application development and " +
                       "system administration with Lotus Notes/Domino as well as in-house user support " +
                       "and first technical contact for the Customer Service department and sales staff. " +
@@ -192,7 +189,6 @@ var work = {
       "title" : "System Integration Administrator",
       "location" : "Hamburg, Germany",
       "dates" : "01/2001 - 11/2001",
-      // "description" : "Implemented and maintained the company's Lotus Notes/Domino infrastructure as well as the Windows 2000 domain network with all services."
       "description" : "My responsibilites included design, installation and maintainance of the whole " +
                       "company's Lotus Notes/Domino infrastructure as well as the Windows 2000 domain " +
                       "network with all services (Domain controllers, Mail servers and Windows Clients). " +
@@ -203,7 +199,6 @@ var work = {
       "title" : "Development and Support Engineer",
       "location" : "Hamburg, Germany",
       "dates" : "04/1998 - 12/2002",
-      // "description" : "Developed, implemented and maintained an in-house information system and later provided high quality first and second level customer support."
       "description" : "I developed, implemented and maintained an in-house information system with " +
                       "Lotus Notes/Domino based on my workflow research that helped improve the processing " +
                       "of all customer services, e.g. help requests, orders, installation procedures. Later " +
@@ -294,9 +289,11 @@ bio.displayContact("#footer-contacts");
 $('#map-div').append(HTMLgoogleMapHeader);
 $('#map-div').append(googleMap);
 
-// *********************************************
-// ***********   D3 Visualization    ***********
-// *********************************************
+// **********************************************************
+// ***********   D3 Visualization of Skill level  ***********
+// **********************************************************
+
+$("#d3-container").prepend("<p>(0:beginner - 10:expert level)</p>").prepend("<h2>Skill level visualized</h2>");
 
 buildSvgBubbleChart();
 drawBubbleChart(skillLevel);
