@@ -39,7 +39,7 @@ var HTMLonlineCourseStart = '<div class="education-entry"></div>';
 var HTMLonlineTitle = '<a href="#">%data%';
 var HTMLonlineSchool = ' - %data%</a>';
 var HTMLonlineDates = '<div class="date-text">%data%</div>';
-var HTMLonlineURL = '<br><a href="#">%data%</a>';
+var HTMLonlineURL = '<br><a href="%url%">%data%</a>';
 
 var HTMLgoogleMapHeader = '<h2>Where I\'ve Lived and Worked</h2>';
 var googleMap = '<div id="map"></div>';

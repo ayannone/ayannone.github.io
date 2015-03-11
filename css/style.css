@@ -95,6 +95,7 @@ span {
 #skills-header {
   color: #F5AE23;
   display: none;
+  padding-left: 10px;
 }
 
 #skills .flex-item span {
@@ -102,14 +103,22 @@ span {
   color: #FFFFFF;
 }
 
-#education, #workExperience {
+#skills {
+  padding-top: 0;
+}
+
+#projects {
+  background-color: #F3F3F3;
+  padding: 25px 0;
+}
+
+#workExperience {
   background-color: #F3F3F3;
   padding-bottom: 10px;
   clear: both;
 }
 
 #d3-container {
-  /*height: 550px;*/
   border: 5px solid orange;
 }
 
@@ -159,6 +168,18 @@ span {
 .education-entry, .work-entry, .project-entry {
   padding-left: 5%;
   padding-right: 5%;
+  margin-bottom: 25px;
+}
+
+.education-entry a, .work-entry a, .project-entry a {
+  pointer-events: none;
+  cursor: default;
+}
+
+ .education-entry a:nth-of-type(2n) {
+  pointer-events: auto;
+  cursor: pointer;
+  color: #6495ED;
 }
 
 .date-text {

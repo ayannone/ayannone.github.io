@@ -16,7 +16,7 @@ var bio = {
                  "Full Stack Web Developer with specialist focus on Ruby on Rails and Front-end technologies, " +
                  "experienced IT Professional with Lotus Notes/Domino and Microsoft SharePoint, Social " +
                  "Entrepreneur, Fair Trader and Innovator.",
-  "skills" : ["HTML5","CSS3","JavaScript","jQuery","Ajax","Ruby","Ruby on Rails","Backbone.js","D3.js","SQL","MySQL","PostgreSQL","Bootstrap","Git","GitHub","Heroku","Amazon S3"],
+  "skills" : ["HTML5","CSS3","JavaScript","jQuery","Ajax","Ruby","Ruby on Rails","Backbone.js","D3.js","SQL","MySQL","PostgreSQL","Bootstrap","Git","GitHub","Heroku","Amazon S3","RSpec","Wordpress","Drupal","Lotus Notes/Domino","Microsoft SharePoint", ".NET/C#"],
   "bioPic" : "images/portrait.jpg",
   display : function() {
     var formattedName = HTMLheaderName.replace("%data%",bio.name);
@@ -92,8 +92,7 @@ var education = {
       var formattedSchoolDegree = HTMLschoolDegree.replace("%data%",education.schools[school].degree);
       var formattedSchoolDates = HTMLschoolDates.replace("%data%",education.schools[school].dates);
       var formattedSchoolLocation = HTMLschoolLocation.replace("%data%",education.schools[school].location);
-      $(".education-entry:last").append(formattedSchoolName);
-      $(".education-entry:last").append(formattedSchoolDegree);
+      $(".education-entry:last").append(formattedSchoolName + formattedSchoolDegree);
       $(".education-entry:last").append(formattedSchoolDates);
       $(".education-entry:last").append(formattedSchoolLocation);
       for (major in education.schools[school].majors) {
@@ -107,9 +106,8 @@ var education = {
       var formattedOnlineTitle = HTMLonlineTitle.replace("%data%",education.onlineCourses[onlineCourse].title);
       var formattedOnlineSchool = HTMLonlineSchool.replace("%data%",education.onlineCourses[onlineCourse].school);
       var formattedOnlineDates = HTMLonlineDates.replace("%data%",education.onlineCourses[onlineCourse].dates);
-      var formattedOnlineURL = HTMLonlineURL.replace("%data%",education.onlineCourses[onlineCourse].url);
-      $(".education-entry:last").append(formattedOnlineTitle);
-      $(".education-entry:last").append(formattedOnlineSchool);
+      var formattedOnlineURL = HTMLonlineURL.replace("%url%",education.onlineCourses[onlineCourse].url).replace("%data%",education.onlineCourses[onlineCourse].url);
+      $(".education-entry:last").append(formattedOnlineTitle + formattedOnlineSchool);
       $(".education-entry:last").append(formattedOnlineDates);
       $(".education-entry:last").append(formattedOnlineURL);
     };
@@ -222,8 +220,7 @@ var work = {
       var formattedWorkDates = HTMLworkDates.replace("%data%",work.jobs[job].dates);
       var formattedWorkLocation = HTMLworkLocation.replace("%data%",work.jobs[job].location);
       var formattedWorkDescription = HTMLworkDescription.replace("%data%",work.jobs[job].description);
-      $(".work-entry:last").append(formattedWorkEmployer);
-      $(".work-entry:last").append(formattedWorkTitle);
+      $(".work-entry:last").append(formattedWorkEmployer + formattedWorkTitle);
       $(".work-entry:last").append(formattedWorkDates);
       $(".work-entry:last").append(formattedWorkLocation);
       $(".work-entry:last").append(formattedWorkDescription);
@@ -240,9 +237,15 @@ work.display();
 var projects = {
   "projects" : [
     {
-     "title" : "Helpr",
+     "title" : "bestclass.nyc",
+     "dates" : "2015",
+     "description" : "Online aggregator for children's after school activities, that provides a search engine for locating high quality classes in your neighborhood.",
+     "images" : [""]
+    },
+    {
+     "title" : "Sublime Packages Evaluator",
      "dates" : "2014",
-     "description" : "Finding, requesting and offering help in different locations and categories and meet people in the real world.",
+     "description" : "Review and rate packages for the Sublime Text Editor. Share your experience with other users. Display packages by popularity using data visualization.",
      "images" : [""]
     },
     {
@@ -252,15 +255,9 @@ var projects = {
      "images" : [""]
     },
     {
-     "title" : "Sublime Packages Evaluator",
+     "title" : "Helpr",
      "dates" : "2014",
-     "description" : "Review and rate packages for the Sublime Text Editor. Share your experience with other users.",
-     "images" : [""]
-    },
-    {
-     "title" : "bestclass.nyc",
-     "dates" : "2015",
-     "description" : "Online aggregator for children's after school classes.",
+     "description" : "Finding, requesting and offering help in different locations and categories and meet people in the real world.",
      "images" : [""]
     }
   ],
@@ -309,10 +306,3 @@ drawPieChart(skillLevel);
 
 buildSvgBarChart();
 drawBarChart(skillLevel);
-
-// *******************************************
-// ***********   More animation    ***********
-// *******************************************
-
-d3.select("#education").transition().delay(1000).duration(3000)
-    .style("background-color", "orange");
