@@ -127,7 +127,6 @@ var work = {
       "title" : "Lead Web Developer",
       "location" : "New York City",
       "dates" : "since 09/2014",
-      // "description" : "Leading the development (Front-end and Back-end) of an online aggregator for children's after school classes."
       "description" : "In my position as the lead web developer I am responsible for the technical " +
                       "implementation of bestclass.nyc, an online aggregator for children’s after-school " +
                       "activities such as art, music, sports, language, tutoring and religious classes. " +
@@ -140,7 +139,6 @@ var work = {
       "title" : "IT-Freelancer",
       "location" : "Norderstedt, Germany",
       "dates" : "07/2010 - 12/2013",
-      // "description" : "Consultant for Lufthansa Systems AS GmbH as well as hardware and software installations and IT support for other clients."
       "description" : "My freelance work for Lufthansa Systems AS GmbH included maintenance of their " +
                       "corporate HR database (Lotus Notes/Domino), implementing functionality with " +
                       "Microsoft SharePoint to provide collaboration within and amongst departments, " +
