@@ -1,0 +1,12 @@
+Project 2 - Interactive Resume
+==============================
+
+Websites, I have used to build this website:
+
+- stackoverflow.com
+- w3schools.com
+- d3js.org
+- getbootstrap.com
+- developers.google.com/maps/
+
+
