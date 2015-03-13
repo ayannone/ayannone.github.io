@@ -66,7 +66,7 @@ var education = {
       "location" : "Wedel, Germany",
       "degree" : "Bachelor plus",
       "dates" : "1998",
-      "majors" : ["CS","Business Administration"],
+      "majors" : ["CS/Business Information Systems"],
       "url" : "http://www.fh-wedel.de"
     },
     {
@@ -312,7 +312,7 @@ $('#map-div').append(googleMap);
 // ***********   D3 Visualization of Skill level  ***********
 // **********************************************************
 
-$("#d3-container").prepend("<p>(0:beginner - 10:expert level)</p>").prepend("<h2>Skill level visualized</h2>");
+$("#d3-container").prepend("<p>(0: beginner - 10: expert)</p>").prepend("<h2>Skill level visualized (self-rated)</h2>");
 
 buildSvgBubbleChart();
 drawBubbleChart(skillLevel);

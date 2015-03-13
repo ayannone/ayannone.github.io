@@ -83,7 +83,7 @@ span {
 
 #top-content {
   padding: 50px;
-  margin-top: 130px;
+  margin-top: 120px;
   background: url("../images/headerpic.jpg") no-repeat;
   background-size: cover;
   min-height: 500px;
@@ -245,14 +245,17 @@ span {
 }
 
 #myCarousel {
-  width: 600px;
-  height: 330px;
+  min-height: 250px;
   padding: 25px 0;
 }
 
-#myCarousel .item{
-  margin-left: 100px;
-  width: 600px;
+.carousel-inner > .item > img,
+.carousel-inner > .item > a > img {
+    width: 70%;
+    margin: auto;
+}
+
+.carousel-control {
 }
 
 div.tooltip {
@@ -306,7 +309,13 @@ div.tooltip {
     display: block;
   }
 
+  #myCarousel {
+    width: 600px;
+    min-height: 330px;
+  }
+
   .welcome-message {
     height: 250px;
   }
+
 }
