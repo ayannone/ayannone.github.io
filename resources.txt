@@ -8,5 +8,3 @@ Websites, I have used to build this website:
 - d3js.org
 - getbootstrap.com
 - developers.google.com/maps/
-
-
