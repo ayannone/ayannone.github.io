@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset="utf-8">
+  <title>Resume Andrea Yannone</title>
+
+  <link href="css/style.css" rel="stylesheet" type="text/css">
+  <script src="js/jQuery.js"></script>
+  <script src="js/helper.js"></script>
+
+  <meta name="viewport" content="width=device-width">
+
+  <!-- Adding an interactive Google Map -->
+  <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places"></script>
+
+  <!--  Adding Bootstrap for Responsiveness -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+
+  <!--  Adding D3.js JavaScript library for data visualization -->
+  <script src="js/chart.js"></script>
+  <script src="js/d3.js"></script>
+  <script src="js/data.js"></script>
+</head>
+
+<body unresolved>
+  <div id="main">
+
+    <div id="header">
+      <div id="top-bar">
+        <ul id="top-contacts" class='flex-box'></ul>
+      </div>
+      <div id="top-content">
+      </div>
+    </div>
+
+    <div id="work-experience">
+    </div>
+
+    <div id="projects">
+    </div>
+
+    <div id="education">
+    </div>
+
+    <div id="d3-container">
+      <div class="flex-box">
+        <div id="bubble-chart"></div>
+        <div id="pie-chart"></div>
+        <div id="bar-chart"></div>
+      </div>
+    </div>
+
+    <div id="map-div">
+    </div>
+
+    <div id="lets-connect">
+    </div>
+
+  </div>
+
+  <script src="js/resumeBuilder.js"></script>
+
+  <script type="text/javascript">
+    if(document.getElementsByClassName('flex-item').length === 0) {
+      document.getElementById('top-contacts').style.display = 'none';
+    }
+    if(document.getElementsByTagName('h1').length === 0) {
+      document.getElementById('header').style.display = 'none';
+    }
+    if(document.getElementsByClassName('work-entry').length === 0) {
+      document.getElementById('work-experience').style.backgroundColor = '#000';
+    }
+    if(document.getElementsByClassName('project-entry').length === 0) {
+      document.getElementById('projects').style.backgroundColor = '#000';
+    }
+    if(document.getElementsByClassName('education-entry').length === 0) {
+      document.getElementById('education').style.backgroundColor = '#000';
+    }
+    if(document.getElementsByClassName('flex-item').length === 0) {
+      document.getElementById('lets-connect').style.display = 'none';
+    }
+    if(document.getElementById('map') === null) {
+      document.getElementById('map-div').style.display = 'none';
+    }
+
+    var charEscape = function(_html) {
+      var newHTML = _html;
+      newHTML = newHTML.replace(/</g,"\"");
+      newHTML = newHTML.replace(/>/g,"\"");
+      // Don't delete this line!
+      return newHTML;
+    };
+  </script>
+</body>
+</html>
