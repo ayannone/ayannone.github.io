@@ -12,10 +12,12 @@ var bio = {
     "twitter" : "@delia421",
     "location" : "New York, USA"
   },
-  "welcomeMsg" : "Hi, I am Andrea. <br> A \"Hamburger Deern\" from Germany, now residing in New York. " +
+  "welcomeMsg" : "Hi, I'm Andrea. <br>" +
                  "Full Stack Web Developer with specialist focus on Ruby on Rails and Front-end technologies, " +
-                 "experienced IT Professional with Lotus Notes/Domino and Microsoft SharePoint, Social " +
-                 "Entrepreneur, Fair Trader and Innovator.",
+                 "experienced IT Professional and Social Entrepreneur." +
+                 "<p>I am a Junior in Web Development, but I have 15+ years of experience in building and " +
+                 "administering software systems. And as a social entrepreneur I have helped over 2,000 students " +
+                 "of all ages gain computer skills through innovative learning concepts. </p>",
   "skills" : ["HTML5","CSS3","JavaScript","jQuery","Ajax","Ruby","Ruby on Rails","Backbone.js","D3.js","SQL","MySQL","PostgreSQL","Bootstrap","Git","GitHub","Heroku","Amazon S3","RSpec","Wordpress","Drupal","Lotus Notes/Domino","Microsoft SharePoint", ".NET/C#"],
   "bioPic" : "images/portrait.jpg",
   display : function() {
@@ -261,12 +263,31 @@ var projects = {
       var formattedProjectTitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
       var formattedProjectDates = HTMLprojectDates.replace("%data%",projects.projects[project].dates);
       var formattedProjectDescription = HTMLprojectDescription.replace("%data%",projects.projects[project].description);
-      var formattedProjectImage = HTMLprojectImage.replace("%data%",projects.projects[project].images);
       $(".project-entry:last").append(formattedProjectTitle);
       $(".project-entry:last").append(formattedProjectDates);
       $(".project-entry:last").append(formattedProjectDescription);
-      $(".project-entry:last").append(formattedProjectImage);
+      projects.displayCarousel(".project-entry:last", projects.projects[project].images);
     };
+  },
+  displayCarousel : function(htmlElement, projectImages) {
+    console.log(projectImages);
+    $(htmlElement).append(HTMLcarouselStart);
+    $(".carousel:last").append(HTMLcarouselIndicators);
+    var formattedCarouselListItemActive = HTMLcarouselListItemActive.replace("%data%",0);
+    $(".carousel-indicators:last").append(formattedCarouselListItemActive);
+    for (var i = 1; i < projectImages.length; i++){
+      var formattedCarouselListItem = HTMLcarouselListItem.replace("%data%",i);
+      $(".carousel-indicators:last").append(formattedCarouselListItem);
+    };
+    $(".carousel:last").append(HTMLcarouselInner);
+    var formattedCarouselInnerItemActive = HTMLcarouselInnerItemActive.replace("%data%","images/"+projectImages[0]).replace("%alt%",projectImages[0]);
+    $(".carousel-inner:last").append(formattedCarouselInnerItemActive);
+    for (var i = 1; i < projectImages.length; i++){
+      var formattedCarouselInnerItem = HTMLcarouselInnerItem.replace("%data%","images/"+projectImages[i]).replace("%alt%",projectImages[i]);
+      $(".carousel-inner:last").append(formattedCarouselInnerItem);
+    };
+    $(".carousel:last").append(HTMLcarouselLeftControl);
+    $(".carousel:last").append(HTMLcarouselRightControl);
   }
 };
 

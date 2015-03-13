@@ -25,6 +25,22 @@ var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImage = '<img src="%data%">';
 
+var HTMLcarouselStart = '<div id="myCarousel" class="carousel slide" data-ride="carousel"></div>';
+var HTMLcarouselIndicators = '<ol class="carousel-indicators"></ol>';
+var HTMLcarouselInner = '<div class="carousel-inner" role="listbox">';
+var HTMLcarouselListItemActive = '<li data-target="#myCarousel" data-slide-to="%data%" class="active"></li>';
+var HTMLcarouselListItem = '<li data-target="#myCarousel" data-slide-to="%data%"></li>';
+var HTMLcarouselInnerItemActive = '<div class="item active"><img src=%data% alt=%alt%></div>';
+var HTMLcarouselInnerItem = '<div class="item"><img src=%data% alt=%alt%></div>';
+var HTMLcarouselLeftControl = '<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">' +
+                                '<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>' +
+                                '<span class="sr-only">Previous</span>' +
+                              '</a>';
+var HTMLcarouselRightControl = '<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">' +
+                                '<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>' +
+                                '<span class="sr-only">Next</span>' +
+                              '</a>';
+
 var HTMLeducationHeader = '<h2>Education</h2>';
 
 var HTMLschoolStart = '<div class="education-entry"></div>';

@@ -6,7 +6,6 @@
 
 h1 {
   font-size: 40px;
-  color: #F5A623;
   line-height: 48px;
   display: inline;
 }
@@ -58,13 +57,15 @@ ul {
 
 img {
   padding: 10px;
+  max-width: 100%;
+}
+
+#top-bar hr {
+  margin: 25px 0 0 0;
 }
 
 span {
   padding: 5px;
-}
-
-#header {
 }
 
 #top-bar {
@@ -72,14 +73,20 @@ span {
   top: 0;
   width: 100%;
   z-index: 1;
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(255,153,0,0.8);
+}
+
+#top-contacts {
+  margin: 0;
+  background-color: #4A4A4A;
 }
 
 #top-content {
-  padding: 0 5% 2.5%;
-  margin-top: 104px;
+  padding: 50px;
+  margin-top: 130px;
   background: url("../images/headerpic.jpg") no-repeat;
   background-size: cover;
+  min-height: 500px;
 }
 
 #name {
@@ -89,23 +96,24 @@ span {
 
 #role {
   margin-left: 25px;
-  font-size: 1.2em;
-  color: #87CEEB;
+  font-size: 1.4em;
+  color: #6495ED;
+}
+
+#skills-header, #skills {
+  background-color: rgba(255,255,255,0.7);
 }
 
 #skills-header {
   color: #F5AE23;
   display: none;
   padding-left: 10px;
+  margin-top: 0;
+  margin-bottom: 0;
 }
 
 #skills .flex-item span {
-  font-weight: bold;
-  color: #FFFFFF;
-}
-
-#skills {
-  padding-top: 0;
+  color: #000000;
 }
 
 #projects {
@@ -164,11 +172,17 @@ span {
 
 .welcome-message {
   padding-top: 18px;
+  padding-right: 10px;
   display: block;
   font-style: italic;
   font-size: 18px;
-  color: #F3F3F3;
+  color: #FFFFFF;
+  background-color: rgba(0,0,0,0.5);
   line-height: 28px;
+}
+
+.welcome-message p {
+  color: #999999;
 }
 
 .education-entry, .work-entry, .project-entry {
@@ -230,6 +244,17 @@ span {
   color: #FFFFFF;
 }
 
+#myCarousel {
+  width: 600px;
+  height: 330px;
+  padding: 25px 0;
+}
+
+#myCarousel .item{
+  margin-left: 100px;
+  width: 600px;
+}
+
 div.tooltip {
   position: absolute;
   text-align: center;
@@ -248,35 +273,40 @@ div.tooltip {
 }
 
 @media only screen and (max-width: 900px) {
-  .biopic {
-    width: 175px;
-  }
+
 }
 
 @media only screen and (max-width: 750px) {
+  #role {
+    display: inline-block;
+  }
+
   #lets-connect {
     margin-top: 10%;
   }
-  .biopic {
-    width: 150px;
-  }
+
   .welcome-message {
-    display: none;
+    padding: 10px;
+    margin-top: 25px;
   }
-  #role {
-    display: inline-block;
+
+  .project-entry {
+    width: 100%;
   }
 }
 
 @media only screen and (max-width: 559px) {
   #top-content {
-    margin-top: 138px;
+    margin-top: 150px;
   }
 }
 
 @media only screen and (min-width: 751px) {
-  #skills-header,
-  .biopic {
+  #skills-header, .biopic {
     display: block;
+  }
+
+  .welcome-message {
+    height: 250px;
   }
 }

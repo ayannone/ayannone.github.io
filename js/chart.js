@@ -43,7 +43,7 @@ function drawBubbleChart(data){
 
   enterUpdateSelection
     .append("circle")
-    .attr("r",function(d,i){return radius = 40;});
+    .attr("r",function(d,i){return radius = 35;});
 
   enterUpdateSelection
     .append("text");
@@ -102,8 +102,7 @@ function drawBubbleChart(data){
 
   updateSelection.select("text")
     .text(function(d){ return d.skill.trim(); })
-    .style("text-align","center")
-    .style("font-size","8px")
+    .style("font-size","10px")
     .style("color", "black");
 
   force.on("tick", function(e) {
