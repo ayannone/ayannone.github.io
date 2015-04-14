@@ -266,7 +266,9 @@ var projects = {
       $(".project-entry:last").append(formattedProjectTitle);
       $(".project-entry:last").append(formattedProjectDates);
       $(".project-entry:last").append(formattedProjectDescription);
-      projects.displayCarousel(".project-entry:last", projects.projects[project].images);
+      //  >>> error, that prevented carousel from reacting to clicks on Prev and Next <<<
+      // projects.displayCarousel(".project-entry:last", projects.projects[project].images);
+      projects.displayCarousel("#projects:last", projects.projects[project].images);
     };
   },
   displayCarousel : function(htmlElement, projectImages) {
