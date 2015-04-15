@@ -258,6 +258,7 @@ var projects = {
   ],
   display : function() {
     $("#projects").append(HTMLprojectHeader);
+    var i = 0;
     for (project in projects.projects) {
       $("#projects").append(HTMLprojectStart);
       var formattedProjectTitle = HTMLprojectTitle.replace("%data%",projects.projects[project].title);
@@ -268,13 +269,18 @@ var projects = {
       $(".project-entry:last").append(formattedProjectDescription);
       //  >>> error, that prevented carousel from reacting to clicks on Prev and Next <<<
       // projects.displayCarousel(".project-entry:last", projects.projects[project].images);
-      projects.displayCarousel("#projects:last", projects.projects[project].images);
+      projects.displayCarousel("#projects:last", projects.projects[project].images, i);
+      i++;
     };
   },
-  displayCarousel : function(htmlElement, projectImages) {
+  displayCarousel : function(htmlElement, projectImages, i) {
     console.log(projectImages);
-    $(htmlElement).append(HTMLcarouselStart);
+    var carouselIdentifier = "carousel"+i;
+    console.log(carouselIdentifier);
+    $(htmlElement).append(HTMLcarouselStart.replace("%carouselName%", carouselIdentifier));
+
     $(".carousel:last").append(HTMLcarouselIndicators);
+
     var formattedCarouselListItemActive = HTMLcarouselListItemActive.replace("%data%",0);
     $(".carousel-indicators:last").append(formattedCarouselListItemActive);
     for (var i = 1; i < projectImages.length; i++){
@@ -288,8 +294,8 @@ var projects = {
       var formattedCarouselInnerItem = HTMLcarouselInnerItem.replace("%data%","images/"+projectImages[i]).replace("%alt%",projectImages[i]);
       $(".carousel-inner:last").append(formattedCarouselInnerItem);
     };
-    $(".carousel:last").append(HTMLcarouselLeftControl);
-    $(".carousel:last").append(HTMLcarouselRightControl);
+    $(".carousel:last").append(HTMLcarouselLeftControl.replace("%carouselName%", carouselIdentifier));
+    $(".carousel:last").append(HTMLcarouselRightControl.replace("%carouselName%", carouselIdentifier));
   }
 };
 

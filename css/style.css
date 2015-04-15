@@ -243,7 +243,7 @@ span {
   color: #FFFFFF;
 }
 
-#myCarousel {
+.myCarousel {
   min-height: 250px;
   padding: 25px 0;
   margin-left: 5%;
@@ -310,7 +310,7 @@ div.tooltip {
     display: block;
   }
 
-  #myCarousel {
+  .myCarousel {
     width: 600px;
     min-height: 330px;
   }
