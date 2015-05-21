@@ -13,11 +13,11 @@ var bio = {
     "location" : "New York, USA"
   },
   "welcomeMsg" : "Hi, I'm Andrea. <br>" +
-                 "Full Stack Web Developer with specialist focus on Ruby on Rails and Front-end technologies, " +
+                 "German born, US based (Resident) Full-Stack Web Developer with specialist focus on Ruby on Rails and Front-End technologies, " +
                  "experienced IT Professional and Social Entrepreneur." +
-                 "<p>I am a Junior in Web Development, but I have 15+ years of experience in building and " +
-                 "administering software systems. And as a social entrepreneur I have helped over 2,000 students " +
-                 "of all ages gain computer skills through innovative learning concepts. </p>",
+                 "<p>As a Full-Stack Web Developer I have worked with Ruby, Ruby on Rails, HTML5, CSS3, JavaScript, jQuery, Ajax, Bootstrap, SQL, Git / GitHub, Heroku, Amazon S3, Backbone.js and D3.js.</p>"+
+                 "<p>As an IT Professional I have many years of working experience in Application Development, System Administration, User/Customer Support using Microsoft SharePoint and Lotus Notes/Domino.</p>"+
+                 "<p>As a Social Entrepreneurship I founded and owned a fair trade boutique business in the greeting cards and gift items industry in Germany and co-founded an Educational Startup to help improve computer literacy across generations.</p>",
   "skills" : ["HTML5","CSS3","JavaScript","jQuery","Ajax","Ruby","Ruby on Rails","Backbone.js","D3.js","SQL","MySQL","PostgreSQL","Bootstrap","Git","GitHub","Heroku","Amazon S3","RSpec","Wordpress","Drupal","Lotus Notes/Domino","Microsoft SharePoint", ".NET/C#"],
   "bioPic" : "images/portrait.jpg",
   display : function() {
@@ -66,13 +66,13 @@ var education = {
       "location" : "Wedel, Germany",
       "degree" : "Bachelor plus",
       "dates" : "1998",
-      "majors" : ["CS/Business Information Systems"],
+      "majors" : ["CS/Business Administration"],
       "url" : "http://www.fh-wedel.de"
     },
     {
       "name" : "General Assembly",
       "location" : "New York City",
-      "degree" : "Full Stack Web Developer",
+      "degree" : "Full-Stack Web Developer",
       "dates" : "2014",
       "majors" : ["Web Development Immersive"],
       "url" : "http://www.generalassemb.ly"
@@ -80,7 +80,7 @@ var education = {
   ],
   "onlineCourses" : [
     {
-      "title" : "Front End Web Development",
+      "title" : "Front-End Web Development (Nanodegree program)",
       "school" : "Udacity",
       "dates" : "2015",
       "url" : "http://www.udacity.com"
@@ -125,85 +125,47 @@ education.display();
 var work = {
   "jobs" : [
     {
-      "employer" : "Best Class, Inc",
-      "title" : "Lead Web Developer",
+      "employer" : "Best Class Inc.",
+      "title" : "Full-Stack Web Developer",
       "location" : "New York City",
       "dates" : "since 09/2014",
-      "description" : "In my position as the lead web developer I am responsible for the technical " +
-                      "implementation of bestclass.nyc, an online aggregator for children’s after-school " +
-                      "activities such as art, music, sports, language, tutoring and religious classes. " +
-                      "Best Class provides a search engine for locating high quality classes in the neighborhood, " +
-                      "offering an easy route, navigable by older children as well as parents. It delivers " +
-                      "all the necessary information, eliminating the need for lengthy internet searches."
-    },
-    {
-      "employer" : "Self-employed",
-      "title" : "IT-Freelancer",
-      "location" : "Norderstedt, Germany",
-      "dates" : "07/2010 - 12/2013",
-      "description" : "My freelance work for Lufthansa Systems AS GmbH included maintenance of their " +
-                      "corporate HR database (Lotus Notes/Domino), implementing functionality with " +
-                      "Microsoft SharePoint to provide collaboration within and amongst departments, " +
-                      "extending the software and hardware ordering systems features as well as hardware " +
-                      "and software installations for various other clients and computer training for " +
-                      "seniors. Specialist focus on Microsoft SharePoint, Lotus Notes/Domino."
+      "description" : "Responsibilities include the architectural design and technical implementation of bestclass.nyc, an online aggregator for children’s after school classes and activities. Developed Prototype into Live Platform (Beta), including > 1,000 listed classes across 30 different institutions in NYC. Skills used: Ruby, Ruby on Rails, HTML5, CSS3, JavaScript, jQuery, Postgresql, Heroku, Amazon S3."
     },
     {
       "employer" : "w3mobil Lernprojekte",
-      "title" : "Co-founder",
+      "title" : "Co-founder (Educational Startup)",
       "location" : "Hamburg, Germany",
       "dates" : "09/2009 - 12/2013",
-      "description" : "With my business partner I founded this company to help share computer knowledge " +
-                      "and make technology accessible to others (especially older and disabled persons). " +
-                      "I set up a partner-network of social institutions, nursing homes and public schools " +
-                      "and developed, organized and implemented over 60 computer literacy training projects " +
-                      "for children, teenager and seniors throughout Hamburg with more than 2000 students " +
-                      "enrolled."
+      "description" : "With my business partner I founded this company to help share computer knowledge and make technology accessible to others. I set up and managed a partner-network of social institutions, nursing homes and public schools (> members) and developed, organized and implemented over 60 computer literacy training projects for children, teenager and seniors with more than 2,000 students enrolled."
     },
     {
       "employer" : "Lufthansa Systems AS GmbH",
-      "title" : "Technical Administration and SharePoint Developer",
+      "title" : "Technical Administration and SharePoint Developer, Consultant",
       "location" : "Norderstedt, Germany",
-      "dates" : "04/2007 - 06/2010",
-      "description" : "For the Technical Administration Department I established a Microsoft SharePoint " +
-                      "infrastructure to improve collaboration and sharing of information, I developed a " +
-                      "hardware and software ordering system and provided technical in-house user support. " +
-                      "I also was solely responsible for the redesign and refactoring of Lufthansa Systems' " +
-                      "HR database (Lotus Notes/Domino) and augmented data flow that effectively reduced the " +
-                      "time spent inputting data relating to the company's job applicants by 50%."
+      "dates" : "04/2007 - 12/2013",
+      "description" : "For the Technical Administration Department I established a Microsoft SharePoint infrastructure to improve collaboration and sharing of information, I developed a hardware and software ordering system and provided technical in-house user support. I also was solely responsible for the redesign and refactoring of Lufthansa Systems' HR database (Lotus Notes/Domino) and augmented data flow that effectively reduced the time spent inputting data relating to the company's job applicants by 50%. "+
+                      "From July 2010 until December 2013 I continued to work with Lufthansa Systems as a consultant. My freelance work included maintenance of their corporate HR database, implementing functionality with Microsoft SharePoint to provide collaboration within and amongst departments, extending the software and hardware ordering systems features."
     },
     {
       "employer" : "Condor Lebensversicherungs-Aktiengesellschaft",
       "title" : "Application Administrator",
       "location" : "Hamburg, Germany",
       "dates" : "08/2002 - 03/2007",
-      "description" : "As an application administrator my tasks included application development and " +
-                      "system administration with Lotus Notes/Domino as well as in-house user support " +
-                      "and first technical contact for the Customer Service department and sales staff. " +
-                      "As a project manager I was responsible for implementing an electronic resubmission " +
-                      "system connected with the digital File Archive as well as launching a Blackberry " +
-                      "infrastructure for the sales department."
+      "description" : "As an Application Administrator my tasks included application development and system administration with Lotus Notes/Domino as well as in-house user support and primary technical contact for the Customer Service department and sales staff. As a project manager I was responsible amongst others for implementing an electronic resubmission system connected with the digital File Archive as well as launching a Blackberry infrastructure for the sales department."
     },
     {
       "employer" : "Nikotel Deutschland AG",
       "title" : "System Integration Administrator",
       "location" : "Hamburg, Germany",
       "dates" : "01/2001 - 11/2001",
-      "description" : "My responsibilites included design, installation and maintainance of the whole " +
-                      "company's Lotus Notes/Domino infrastructure as well as the Windows 2000 domain " +
-                      "network with all services (Domain controllers, Mail servers and Windows Clients). " +
-                      "Migration of the corporate mail system from Lotus Notes/Domino to Outlook/Exchange 2000."
+      "description" : "My responsibilities included the implementation of the company's Lotus Notes/Domino infrastructure, installation and administration of the Windows 2000 domain network and the migration of the corporate mail system from Lotus Notes/Domino to Outlook/Exchange 2000. Period included company sponsored training and certification as a 'Microsoft Certified Systems Engineer on Windows 2000 (MCSE 2000)'."
     },
     {
       "employer" : "PPP Internetdienstleistungen GmbH",
       "title" : "Development and Support Engineer",
       "location" : "Hamburg, Germany",
       "dates" : "04/1998 - 12/2002",
-      "description" : "I developed, implemented and maintained an in-house information system with " +
-                      "Lotus Notes/Domino based on my workflow research that helped improve the processing " +
-                      "of all customer services, e.g. help requests, orders, installation procedures. Later " +
-                      "I joined the user support team to help customers with technical inquiries as well as " +
-                      "with installations and configuration of internet services"
+      "description" : "I developed, implemented and maintained an in-house information system with Lotus Notes/Domino based on my workflow research that massively improved the quality and processing time of all customer services, e.g. help requests, orders, installation procedures. Later I joined the service & support team to help customers with technical inquiries as well as with installations and configuration of internet services."
     }
   ],
   display : function() {
