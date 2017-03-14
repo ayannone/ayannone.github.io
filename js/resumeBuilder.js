@@ -19,7 +19,7 @@ var bio = {
                  "<p>As an IT Professional I have many years of working experience in Application Development, System Administration, User/Customer Support using Microsoft SharePoint and Lotus Notes/Domino.</p>"+
                  "<p>As a Social Entrepreneurship I founded and owned a fair trade boutique business in the greeting cards and gift items industry in Germany and co-founded an Educational Startup to help improve computer literacy across generations.</p>",
   "skills" : ["HTML5","CSS3","JavaScript","jQuery","Ajax","Ruby","Ruby on Rails","Backbone.js","D3.js","SQL","MySQL","PostgreSQL","Bootstrap","Git","GitHub","Heroku","Amazon S3","RSpec","Wordpress","Drupal","Lotus Notes/Domino","Microsoft SharePoint", ".NET/C#"],
-  "bioPic" : "images/portrait.jpg",
+  "bioPic" : "images/avatar_female.png",
   display : function() {
     var formattedName = HTMLheaderName.replace("%data%",bio.name);
     var formattedRole = HTMLheaderRole.replace("%data%",bio.role);
